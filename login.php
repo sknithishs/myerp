@@ -10,7 +10,7 @@ if(isset($_SESSION['loginstatus']) && $_SESSION['loginstatus']=='success')
   <form method="post" action='login.php'>
     <input type="text" name="username" >
     <input type="password" name="password">
-    <button type="submit" class="btn" name="login_button">Login</button>
+    <button type="submit"  name="login_button">Login</button>
   </form>
 </body>
 </html>

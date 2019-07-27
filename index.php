@@ -1,7 +1,8 @@
 <?php
+$thispage=basename(__FILE__);
+include("header.php");
 session_start();
 include("connection.php");
-include("logout.php");
 if($_SESSION['loginstatus']!='success')
 {
   header('location: login.php');
@@ -18,6 +19,5 @@ $name=$row['name'];
   <title>Welcome <?php echo $name; ?></title>
 </head>
 <body>
-<a href="index.php?logout">logout</a>
 </body>
 </html>
