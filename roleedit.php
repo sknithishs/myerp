@@ -1,11 +1,15 @@
 <?php
 include('connection.php');
-if(!isset($roleedittarget))
+if(!isset($_GET['user']) && !isset($_POST['userrolesubmit']))
 {
   echo "No target user";
 }
 else
 {
+  if (isset($_GET['user']))
+    $roleedittarget=$_GET['user'];
+    if (isset($_POST['userrolesubmit']))
+      $roleedittarget=$_POST['username'];
 $query="SELECT id,name,email FROM user WHERE username='$roleedittarget'";
 $results=mysqli_query($db,$query);
 $row=mysqli_fetch_assoc($results);
@@ -13,7 +17,8 @@ $userid=$row['id'];
 $name=$row['name'];
 $email=$row['email'];
 echo "Username:".$roleedittarget." Name:".$name." Email:".$email;
-echo "<form action='".$thispage."' method='post'>
+echo "<form action='roleedit.php' method='post'>
+  <input type='hidden' name='username' value=".$roleedittarget." />
   <table>
     <tr>
       <th></th>

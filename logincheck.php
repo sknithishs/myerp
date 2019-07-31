@@ -27,8 +27,8 @@
       {
   	     $_SESSION['username'] = $username;
   	     $_SESSION['loginstatus'] = "success";
-         $query="UPDATE `user` SET `last` = CURRENT_TIMESTAMP WHERE `user`.`username` = ".$_SESSION['username'];
-         $results=mysqli_query($db,$query); 
+         $query="UPDATE user SET user.last = now() WHERE user.username = '".$_SESSION['username']."'";
+         $results=mysqli_query($db,$query);
          header('location: index.php');
        }
        else

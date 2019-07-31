@@ -14,7 +14,7 @@ include("createusercheck.php"); ?>
   </head>
   <body>
   <?php
-  if(!isset($_POST['newuser_details']) || !isset($regstatus) || $regstatus=='error')
+  if(!isset($_POST['newuser_details']) ||  !isset($regstatus) || $regstatus=='error')
   {
     echo '<form action="createuser.php" method="post">
       Name:
@@ -33,7 +33,8 @@ include("createusercheck.php"); ?>
   else
   {
     $roleedittarget=$username;
-    include("roleedit.php");
+    echo $username;
+    header("location:roleedit.php?user=".$username);
   } ?>
   </body>
 </html>
